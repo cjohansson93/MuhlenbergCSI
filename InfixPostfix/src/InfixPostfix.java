@@ -1,18 +1,14 @@
 public class InfixPostfix implements StackInterface<String>{
-    final private String[] stack;
-    private String exp;
+    private String[] stack;
     private int top;
-    final private int size;
 
-    public InfixPostfix(String expression){
-        this.exp = expression;
-        this.size = expression.length();
-        this.stack = new String[size];
+    public InfixPostfix(){
         this.top = -1;
-
     }
 
-    public String infixToPostfix(){
+    public String infixToPostfix( String exp){
+        int size = exp.length();
+        this.stack = new String[size];
         String postfix = "";
         for (int i = 0; i < size; i++){
             if (exp.charAt(i) == '+' || exp.charAt(i) == '-'){
@@ -46,6 +42,53 @@ public class InfixPostfix implements StackInterface<String>{
             postfix = postfix + pop();
         }
         return postfix;
+    }
+
+    public String postfixToInfix( String exp , boolean evaluate){
+        boolean eval = evaluate;
+        int size = exp.length();
+        this.stack = new String[size];
+        if (eval && exp.matches("(.*)[^0-9\\-+*/%](.*)")){
+            eval = false;
+            System.out.println("Unable to evaluate, hostile character detected!");
+        }
+        for (int i = 0; i < size; i++){
+            if (Character.toString(exp.charAt(i)).matches("[+/%*\\-]")){
+                String a = pop();
+                String b = Character.toString(exp.charAt(i));
+                String c = pop();
+                if (!eval){
+                    push(c+b+a);
+                }
+                else {
+                    if (b.equals("+")){
+                        push(Double.toString(Double.parseDouble(c) + Double.parseDouble(a)));
+                    }
+                    else if (b.equals("-")){
+                        push(Double.toString(Double.parseDouble(c) - Double.parseDouble(a)));
+                    }
+                    else if (b.equals("*")){
+                        push(Double.toString(Double.parseDouble(c) * Double.parseDouble(a)));
+                    }
+                    else if (b.equals("/")){
+                        push(Double.toString(Double.parseDouble(c) / Double.parseDouble(a)));
+                    }
+                    else if (b.equals("%")){
+                        push(Double.toString(Double.parseDouble(c) % Double.parseDouble(a)));
+                    }
+
+                }
+            }
+            else {
+                push(Character.toString(exp.charAt(i)));
+            }
+        }
+        if (top > 0){
+            return "Invalid postfix expression: "+exp;
+        }
+        else {
+            return pop();
+        }
     }
 
     public void push(String number){
@@ -87,7 +130,7 @@ public class InfixPostfix implements StackInterface<String>{
     }
 
     public boolean isFull(){
-        if(top == size -1){
+        if(top == stack.length -1){
             return true;
         }
         return false;
