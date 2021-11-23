@@ -1,19 +1,20 @@
+/*
+Author:      Christian Johansson (cjohansson@muhlenberg.edu)
+Date:        10/30/2021
+Instructor:  Professor Silveyra
+Description: The menu for converting infix to postfix & vice versa,
+             also menu to evaluate postfix numerical expressions.
+*/
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class StackMenu {
     public static void main(String[] args) {
-        System.out.println("62/3-4*+".matches("(.*)[^0-9\\-+*/%](.*)"));
+
+        // Call InfixPostfix constructor and make object
         InfixPostfix i;
         i = new InfixPostfix();
-        System.out.println(i.infixToPostfix("a*b/c"));
-        i = new InfixPostfix();
-        System.out.println(i.infixToPostfix("a/b-c+d*e-a*c"));
-        i = new InfixPostfix();
-        System.out.println(i.infixToPostfix("(a/(b-c+d))*(e-a)*c"));
-        i = new InfixPostfix();
-        System.out.println(i.infixToPostfix("(1-(3*(4-5)/2)-4)"));
-        i = new InfixPostfix();
-        System.out.println(i.infixToPostfix("ab*c/"));
 
         // Control variable for switch main menu
         int choice = 0;
@@ -23,7 +24,7 @@ public class StackMenu {
         Scanner keyboard = new Scanner(System.in);
 
         // Menu loop
-        while ( choice != 1 || choice != 2 ) {
+        while ( choice != 3 ) {
 
             // Menu controlled by simple number switch
             System.out.println("---------------------- Main Menu -----------------------");
@@ -31,7 +32,14 @@ public class StackMenu {
             System.out.println("2. Convert postfix to infix");
             System.out.println("3. Exit");
             System.out.println("Enter the number corresponding to the desired operation: ");
-            choice = keyboard.nextInt();
+
+            // try catch for inputting the wrong type of entry
+            try {
+                choice = keyboard.nextInt();
+            }catch (InputMismatchException e){
+                choice = 0;
+                keyboard.nextLine();
+            }
 
             if (choice == 1 || choice == 2 || choice == 3) {
                 switch (choice) {
@@ -41,6 +49,7 @@ public class StackMenu {
                         System.out.println(i.infixToPostfix(keyboard.nextLine()));
                         break;
                     case 2: // Enter postfix submenu
+                        // Menu loop
                         while ( type != 3 ) {
 
                             // Menu controlled by simple number switch
@@ -49,7 +58,14 @@ public class StackMenu {
                             System.out.println("2. Evaluate postfix expression");
                             System.out.println("3. Exit to main menu");
                             System.out.println("Enter the number corresponding to the desired operation: ");
-                            type = keyboard.nextInt();
+
+                            // try catch for inputting the wrong type of entry
+                            try {
+                                type = keyboard.nextInt();
+                            }catch (InputMismatchException e){
+                                type = 0;
+                                keyboard.nextLine();
+                            }
 
                             if (type == 1 || type == 2) {
                                 switch (type) {
