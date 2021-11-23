@@ -1,4 +1,12 @@
+/*
+Author:      Christian Johansson (cjohansson@muhlenberg.edu)
+Date:        11/23/2021
+Instructor:  Professor Silveyra
+Description: The Node class for linkedlist within an open hash table, with key and value.
+*/
+
 public class NodeHash {
+
     private String key;
     private String value;
     public NodeHash next;
@@ -9,12 +17,14 @@ public class NodeHash {
         next = null;
     }
 
+    // Overload constructor for blank Node
     public NodeHash(){
         this.key = null;
         this.value = null;
         next = null;
     }
 
+    // Getters and Setters
     public String getKey() {
         return key;
     }

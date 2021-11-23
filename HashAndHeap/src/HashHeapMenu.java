@@ -1,11 +1,20 @@
+/*
+Author:      Christian Johansson (cjohansson@muhlenberg.edu)
+Date:        11/23/2021
+Instructor:  Professor Silveyra
+Description: The menu for an open hash table or heap, with insert,remove,
+             search & display functionality options.
+*/
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class HashHeapMenu {
     public static void main(String[] args) {
+        // Call to Hash and Heap constructors
         OpenHash theOpenHash = new OpenHash();
         Heap theHeap = new Heap();
-        
+
         // Create a Scanner object to read from the keyboard
         Scanner keyboard = new Scanner(System.in);
 
@@ -49,6 +58,7 @@ public class HashHeapMenu {
                                     case 1: // Hash Search
                                         System.out.println("Enter the key to search: ");
                                         String found = theOpenHash.search(keyboard.nextLine());
+                                        // Tailoring message to indicate if the search was successful
                                         if (found != null){
                                             System.out.println("The value at that key is: " + found);
                                         }
@@ -67,6 +77,7 @@ public class HashHeapMenu {
                                         System.out.println("Enter the key to remove: ");
                                         String key2 = keyboard.nextLine();
                                         boolean removed = theOpenHash.remove(key2);
+                                        // Tailoring message to indicate if the removal was successful
                                         if (removed){
                                             System.out.println(key2 + ", has been removed.");
                                         }
@@ -116,6 +127,7 @@ public class HashHeapMenu {
                                     case 2: // Insert new element
                                         int priority;
                                         System.out.println("Enter the integer priority of the person");
+                                        // Catching non integer inputs
                                         try {
                                             priority = keyboard.nextInt();
                                         }catch (InputMismatchException e){
