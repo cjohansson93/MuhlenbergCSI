@@ -56,6 +56,7 @@ public class HashHeapMenu {
                             if (choice2 == 1 || choice2 == 2 || choice2 == 3|| choice2 == 4|| choice2 == 5) {
                                 switch (choice2) {
                                     case 1: // Hash Search
+                                        keyboard.nextLine();
                                         System.out.println("Enter the key to search: ");
                                         String found = theOpenHash.search(keyboard.nextLine());
                                         // Tailoring message to indicate if the search was successful
@@ -67,6 +68,7 @@ public class HashHeapMenu {
                                         }
                                         break;
                                     case 2: // Hash Insert
+                                        keyboard.nextLine();
                                         System.out.println("Enter the key to insert: ");
                                         String key = keyboard.nextLine();
                                         System.out.println("Enter the value to insert at that key:");
@@ -74,6 +76,7 @@ public class HashHeapMenu {
                                         theOpenHash.insert(key,value);
                                         break;
                                     case 3: // Hash Remove
+                                        keyboard.nextLine();
                                         System.out.println("Enter the key to remove: ");
                                         String key2 = keyboard.nextLine();
                                         boolean removed = theOpenHash.remove(key2);
@@ -121,6 +124,7 @@ public class HashHeapMenu {
                             if (choice3 == 1 || choice3 == 2 || choice3 == 3 || choice3 == 4 || choice3 == 5) {
                                 switch (choice3) {
                                     case 1: // Search by name
+                                        keyboard.nextLine();
                                         System.out.println("Enter the name to search for: ");
                                         theHeap.search(keyboard.nextLine());
                                         break;
