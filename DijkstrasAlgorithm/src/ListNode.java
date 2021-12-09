@@ -11,14 +11,14 @@ public class ListNode {
     private Integer weight;
     private Boolean known;
     private Integer previous;
-    public ListNode next;
+    private ListNode next;
 
     public ListNode( Integer to, Integer weight){
         this.to = to;
         this.weight = weight;
         this.known = false;
         this.previous = -1;
-        next = null;
+        setNext(null);
     }
 
     // Overload constructor for blank Node
@@ -27,7 +27,7 @@ public class ListNode {
         this.weight = null;
         this.known = null;
         this.previous = null;
-        next = null;
+        setNext(null);
     }
 
     // Getters and Setters
@@ -61,5 +61,13 @@ public class ListNode {
 
     public void setPrevious(Integer previous) {
         this.previous = previous;
+    }
+
+    public ListNode getNext() {
+        return next;
+    }
+
+    public void setNext(ListNode next) {
+        this.next = next;
     }
 }

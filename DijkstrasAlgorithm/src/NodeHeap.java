@@ -20,6 +20,7 @@ public class NodeHeap {
         this.setValue(null);
     }
 
+    // Getters and Setters
     public ListNode getNode() {
         return node;
     }
@@ -36,5 +37,4 @@ public class NodeHeap {
         this.value = value;
     }
 
-    // Getters and Setters
 }

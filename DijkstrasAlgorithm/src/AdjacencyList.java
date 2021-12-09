@@ -34,17 +34,17 @@ public class AdjacencyList {
         // This while loop is broken internally
         while(true) {
             // Insertion if to and weight don't already exist in same node
-            if (temp.next == null){
+            if (temp.getNext() == null){
                 ListNode n = new ListNode(to,weight);
-                temp.next = n;
+                temp.setNext(n);
                 break;
             }
             // Don't insert if to and weight of Node already exist
-            else if (temp.next.getTo() == to && temp.next.getWeight() == weight){
+            else if (temp.getNext().getTo() == to && temp.getNext().getWeight() == weight){
                 break;
             }
             else {
-                temp = temp.next;
+                temp = temp.getNext();
             }
         }
     }
@@ -64,14 +64,14 @@ public class AdjacencyList {
         // This while loop is broken internally
         while(true) {
             // Nothing more to remove
-            if (temp.next == null){
+            if (temp.getNext() == null){
                 return;
             }
             // Remove every Node
             else {
-                temp.next = temp.next.next;
+                temp.setNext(temp.getNext().getNext());
             }
-            temp = temp.next;
+            temp = temp.getNext();
         }
     }
 
@@ -92,15 +92,15 @@ public class AdjacencyList {
         ListNode temp = list[from];
         while(true) {
             // Case if the key doesn't exist and end is reached
-            if (temp.next == null){
+            if (temp.getNext() == null){
                 return false;
             }
             // Case if the key is found and its value returned
-            else if (temp.next.getTo() == to && temp.next.getWeight() == weight){
+            else if (temp.getNext().getTo() == to && temp.getNext().getWeight() == weight){
                 return true;
             }
             else {
-                temp = temp.next;
+                temp = temp.getNext();
             }
         }
     }
@@ -115,11 +115,11 @@ public class AdjacencyList {
                 // Temporary node to transverse list at the index
                 ListNode temp = list[i];
                 while (temp != null){
-                    if (temp.next != null){
+                    if (temp.getNext() != null){
                         System.out.println("From: " + i + " To: " + temp.getTo() + " Weight: " + temp.getWeight()+ " Known: "
                                             + temp.getKnown()+ " Previous: " + temp.getPrevious());
                     }
-                    temp = temp.next;
+                    temp = temp.getNext();
                 }
             }
         }

@@ -2,8 +2,7 @@
 Author:      Christian Johansson (cjohansson@muhlenberg.edu)
 Date:        11/23/2021
 Instructor:  Professor Silveyra
-Description: The menu for an open hash table or heap, with insert,remove,
-             search & display functionality options.
+Description: The menu for Dijkstras algorithm, BFS & DFS, and loading a text file.
 */
 
 import java.util.InputMismatchException;
