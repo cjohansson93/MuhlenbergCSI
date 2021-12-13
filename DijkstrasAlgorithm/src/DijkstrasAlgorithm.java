@@ -50,15 +50,15 @@ public class DijkstrasAlgorithm {
 
                         }
                         // dijkstras
-                        boolean[] visited = new boolean[theAdjacencyList.list.length];
-                        NodeHeap[] vertices = new NodeHeap[theAdjacencyList.list.length];
-                        int numVisits = 0;
-                        theHeap = new Heap(theAdjacencyList.list.length+1);
-                        for (int i = 0; i < theAdjacencyList.list.length; i++) {
-                            vertices[i] = new NodeHeap(false, 0, 0);
-                        }
-                        theHeap.insert(0, vertices[0]);
-                        while(numVisits < visited.length){
+//                        boolean[] visited = new boolean[theAdjacencyList.list.length];
+//                        NodeHeap[] vertices = new NodeHeap[theAdjacencyList.list.length];
+//                        int numVisits = 0;
+//                        theHeap = new Heap(theAdjacencyList.list.length+1);
+//                        for (int i = 0; i < theAdjacencyList.list.length; i++) {
+//                            vertices[i] = new NodeHeap(false, 0, 0);
+//                        }
+//                        theHeap.insert(0, vertices[0]);
+//                        while(numVisits < visited.length){
 //                            if (queue.isEmpty()) {
 //                                for (int i = 0; i < visited.length; i++){
 //                                    if (!visited[i]) {
@@ -68,20 +68,20 @@ public class DijkstrasAlgorithm {
 //                                    }
 //                                }
 //                            }
-
-                            int popped = queue.dequeue();
-                            if (!visited[popped]){
-                                if (theAdjacencyList.list[popped] != null) {
-                                    ListNode temp = theAdjacencyList.list[popped].getNext();
-                                    while (temp != null) {
-                                        queue.enqueue(temp.getTo());
-                                        temp = temp.getNext();
-                                    }
-                                }
-                                visited[popped] = true;
-                                numVisits++;
-                            }
-                        }
+//
+//                            int popped = queue.dequeue();
+//                            if (!visited[popped]){
+//                                if (theAdjacencyList.list[popped] != null) {
+//                                    ListNode temp = theAdjacencyList.list[popped].getNext();
+//                                    while (temp != null) {
+//                                        queue.enqueue(temp.getTo());
+//                                        temp = temp.getNext();
+//                                    }
+//                                }
+//                                visited[popped] = true;
+//                                numVisits++;
+//                            }
+//                        }
                         break;
                     case 2: // DFS & BFS
                         keyboard.nextLine();
@@ -93,8 +93,8 @@ public class DijkstrasAlgorithm {
 
                         }
                         // bfs
-                        visited = new boolean[theAdjacencyList.list.length];
-                        numVisits = 0;
+                        boolean[] visited = new boolean[theAdjacencyList.list.length];
+                        int numVisits = 0;
                         String bfs = "";
                         queue = new CircularQueue(theAdjacencyList.list.length*theAdjacencyList.list.length);
                         queue.enqueue(0);
@@ -123,6 +123,7 @@ public class DijkstrasAlgorithm {
                                 bfs = bfs + popped + ",";
                             }
                         }
+                        System.out.println("BFS");
                         System.out.println(bfs);
                         // dfs
                         visited = new boolean[theAdjacencyList.list.length];
@@ -155,6 +156,7 @@ public class DijkstrasAlgorithm {
                                 dfs = dfs + popped + ",";
                             }
                         }
+                        System.out.println("DFS");
                         System.out.println(dfs);
                         break;
                     case 3: // Load file
