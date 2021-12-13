@@ -9,15 +9,11 @@ public class ListNode {
 
     private Integer to;
     private Integer weight;
-    private Boolean known;
-    private Integer previous;
     private ListNode next;
 
     public ListNode( Integer to, Integer weight){
         this.to = to;
         this.weight = weight;
-        this.known = false;
-        this.previous = -1;
         setNext(null);
     }
 
@@ -25,8 +21,6 @@ public class ListNode {
     public ListNode(){
         this.to = null;
         this.weight = null;
-        this.known = null;
-        this.previous = null;
         setNext(null);
     }
 
@@ -45,22 +39,6 @@ public class ListNode {
 
     public void setWeight(Integer weight) {
         this.weight = weight;
-    }
-
-    public Boolean getKnown() {
-        return known;
-    }
-
-    public void setKnown(Boolean known) {
-        this.known = known;
-    }
-
-    public Integer getPrevious() {
-        return previous;
-    }
-
-    public void setPrevious(Integer previous) {
-        this.previous = previous;
     }
 
     public ListNode getNext() {

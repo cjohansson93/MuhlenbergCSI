@@ -6,35 +6,24 @@ Description: The Node class for a heap, with name and priority.
 */
 
 public class NodeHeap {
-    private ListNode node;
-    private Integer value;
+    private boolean known;
+    private int distance;
+    private int previous;
 
-    public NodeHeap(ListNode node, Integer value){
-        this.setNode(node);
-        this.setValue(value);
+    public NodeHeap(boolean known, int distance, int previous){
+        this.known = known;
+        this.distance = distance;
+        this.previous = previous;
     }
 
     // Overload constructor for blank Node
     public NodeHeap(){
-        this.setNode(null);
-        this.setValue(null);
+        this.known = false;
+        this.distance = 0;
+        this.previous = 0;
     }
 
-    // Getters and Setters
-    public ListNode getNode() {
-        return node;
+    public int getValue() {
+        return this.distance;
     }
-
-    public void setNode(ListNode node) {
-        this.node = node;
-    }
-
-    public Integer getValue() {
-        return value;
-    }
-
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
 }

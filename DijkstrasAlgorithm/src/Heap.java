@@ -12,9 +12,9 @@ public class Heap {
     // top is the last non null index in heap array
     int top;
 
-    // Heap constructor, sets initial size of heap to 100 and top starts at 0
-    public Heap(){
-        heap = new NodeHeap[100];
+    // Heap constructor, sets initial size of heap to size and top starts at 0
+    public Heap(int size){
+        heap = new NodeHeap[size];
         top = 0;
     }
 
@@ -25,7 +25,7 @@ public class Heap {
      * @param value Integer value of a node, lower priorities are parents of larger ones.
      * @param node The String node associated with a given value.
      */
-    public void insert(int value, ListNode node){
+    public void insert(int value, NodeHeap node){
         // Insert as long as array isn't full
         if (!(top == heap.length -1)){
             //Moves index to be over first empty(null) node
@@ -40,7 +40,7 @@ public class Heap {
                 heap[i] = heap[i/2];
             }
             // Insert created new node at final index
-            heap[i] = new NodeHeap(node,value);
+            heap[i] = node;
         }
     }
 
@@ -89,32 +89,15 @@ public class Heap {
         }
     }
 
-    /**
-     * Searches the heap array nodes for a node match,
-     * prints out to,weight,known & previous if found or informs if not found
-     *
-     * @param node String node to search for in each node
-     */
-    public void search(ListNode node){
-        // Loops through all non null index in heap
-        for (int i = 1; i <= top; i++){
-            if (heap[i].getNode() == node){
-                System.out.println(" To: " + node.getTo() +" Weight: " + node.getWeight()+" Known: " + node.getKnown()
-                                    +" Previous: " + node.getPrevious());
-                return;
-            }
-        }
-        System.out.println("Node does not exist.");
-    }
-
-    /**
-     * Displays the to,weight,known & previous of each non null node in array
-     */
-    public void display(){
-        // Loops through all non null index in heap
-        for (int i = 1; i <= top; i++){
-            System.out.println(" To: " + heap[i].getNode().getTo() +" Weight: " + heap[i].getNode().getWeight()
-                            +" Known: " + heap[i].getNode().getKnown() +" Previous: " + heap[i].getNode().getPrevious());
-        }
-    }
+//
+//    /**
+//     * Displays the to,weight,known & previous of each non null node in array
+//     */
+//    public void display(){
+//        // Loops through all non null index in heap
+//        for (int i = 1; i <= top; i++){
+//            System.out.println(" To: " + heap[i].getNode().getTo() +" Weight: " + heap[i].getNode().getWeight()
+//                            +" Known: " + heap[i].getNode().getKnown() +" Previous: " + heap[i].getNode().getPrevious());
+//        }
+//    }
 }

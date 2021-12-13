@@ -116,8 +116,8 @@ public class AdjacencyList {
                 ListNode temp = list[i];
                 while (temp != null){
                     if (temp.getNext() != null){
-                        System.out.println("From: " + i + " To: " + temp.getTo() + " Weight: " + temp.getWeight()+ " Known: "
-                                            + temp.getKnown()+ " Previous: " + temp.getPrevious());
+//                        System.out.println("From: " + i + " To: " + temp.getTo() + " Weight: " + temp.getWeight()+ " Known: "
+//                                            + temp.getKnown()+ " Previous: " + temp.getPrevious());
                     }
                     temp = temp.getNext();
                 }

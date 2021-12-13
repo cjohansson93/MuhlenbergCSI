@@ -8,7 +8,7 @@ Description: int Stack with push, pop, peek, as well as determining if stack is 
 public class Stack {
 
     // The stack to hold segments
-    private int[] stack;
+    private int[] stack = new int[100];
     // The top of the stack
     private int top;
 
